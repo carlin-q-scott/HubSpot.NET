@@ -20,5 +20,8 @@ namespace HubSpot.NET.Api.Automation
 
         public void EnrollContactInWorkflow(string workflowId, string email)
             => _client.ExecuteOnly(GetRoute(workflowId, "enrollments", "contacts", email), Method.POST);
+
+        public void UnenrollContactFromWorkflow(string workflowId, string email)
+            => _client.ExecuteOnly(GetRoute(workflowId, "enrollments", "contacts", email), Method.DELETE);
     }
 }

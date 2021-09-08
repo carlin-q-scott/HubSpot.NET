@@ -7,5 +7,6 @@ namespace HubSpot.NET.Core.Interfaces
         WorkflowListHubSpotModel GetWorkflows { get; }
 
         void EnrollContactInWorkflow(string workflowId, string email);
+        void UnenrollContactFromWorkflow(string workflowId, string email);
     }
 }
