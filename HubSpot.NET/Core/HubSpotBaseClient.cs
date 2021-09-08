@@ -41,19 +41,19 @@ namespace HubSpot.NET.Core
         public T Execute<T>(string path, Method method = Method.GET) where T : new() 
             => SendReceiveRequest<T>(path, method);
 
-        public T Execute<T, K>(string absoluteUriPath, K entity, Method method = Method.GET) where T : new() 
+        public T Execute<T, K>(string absoluteUriPath, K entity, Method method = Method.GET) where T : new() where K : class
             => SendReceiveRequest<T, K>(absoluteUriPath, method, entity);
 
         public void ExecuteOnly(string absoluteUriPath, Method method = Method.GET) 
             => SendOnlyRequest(absoluteUriPath, method);
 
-        public void ExecuteOnly<T>(string absoluteUriPath, T entity, Method method = Method.GET) 
+        public void ExecuteOnly<T>(string absoluteUriPath, T entity, Method method = Method.GET) where T : class
             => SendOnlyRequest(absoluteUriPath, method, entity);
 
         public void ExecuteBatch(string absoluteUriPath, List<object> entities, Method method = Method.GET) 
             => SendOnlyRequest(absoluteUriPath, method, entities);
 
-        public T ExecuteMultipart<T>(string absoluteUriPath, byte[] data, string filename, Dictionary<string,string> parameters, Method method = Method.POST)
+        public T ExecuteMultipart<T>(string absoluteUriPath, byte[] data, string filename, Dictionary<string,string> parameters, Method method = Method.POST) where T : class
         {
             var fullUrl = $"{_baseUrl}{absoluteUriPath}";
             var request = ConfigureRequestAuthentication(fullUrl, method);
@@ -107,7 +107,7 @@ namespace HubSpot.NET.Core
         /// <param name="method">The REST method used.</param>
         /// <param name="entity">The entity being sent in the request.</param>
         /// <returns>An entity of type T returned from the request.</returns>
-        private T SendReceiveRequest<T,K>(string path, Method method, K entity) where T: new()
+        private T SendReceiveRequest<T,K>(string path, Method method, K entity) where T: new() where K: class
         {
             RestRequest request = ConfigureRequestAuthentication(path, method);
            
@@ -131,7 +131,7 @@ namespace HubSpot.NET.Core
         /// <param name="path">The endpoint target.</param>
         /// <param name="method">The REST method to use.</param>
         /// <param name="entity">The entity being sent to the endpoint.</param>
-        private void SendOnlyRequest<T>(string path, Method method, T entity)
+        private void SendOnlyRequest<T>(string path, Method method, T entity) where T : class
         {
 
             RestRequest request = ConfigureRequestAuthentication(path, method);

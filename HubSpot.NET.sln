@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HubSpot.NET", "HubSpot.NET\HubSpot.NET.csproj", "{2D45B6F1-77AE-427E-846B-75BB380BE93B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HubSpot.NET.Examples", "HubSpot.NET.Examples\HubSpot.NET.Examples.csproj", "{AE1AABCC-388E-43A3-B58D-5BD566C3438B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HubSpot.NET.Tests", "HubSpot.NET.Tests\HubSpot.NET.Tests.csproj", "{20F8999E-C5C4-4A76-9836-86A34DAA7224}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HubSpot.NET.Tests", "HubSpot.NET.Tests\HubSpot.NET.Tests.csproj", "{20F8999E-C5C4-4A76-9836-86A34DAA7224}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

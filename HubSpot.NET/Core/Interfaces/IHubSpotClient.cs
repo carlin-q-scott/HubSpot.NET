@@ -9,11 +9,11 @@ namespace HubSpot.NET.Core.Interfaces
         string AppId { get; }
         string BasePath { get; }
 
-        T Execute<T>(string absoluteUriPath, Method method = Method.GET) where T: new();
-        T Execute<T,K>(string absoluteUriPath, K entity, Method method = Method.GET) where T: new();        
-        T ExecuteMultipart<T>(string absoluteUriPath, byte[] data, string filename, Dictionary<string, string> parameters, Method method = Method.POST);
+        T Execute<T>(string absoluteUriPath, Method method = Method.GET) where T : new();
+        T Execute<T,K>(string absoluteUriPath, K entity, Method method = Method.GET) where T : new() where K : class;
+        T ExecuteMultipart<T>(string absoluteUriPath, byte[] data, string filename, Dictionary<string, string> parameters, Method method = Method.POST) where T : class;
         void ExecuteOnly(string absoluteUriPath, Method method = Method.GET);
-        void ExecuteOnly<T>(string absoluteUriPath, T entity, Method method = Method.GET);
+        void ExecuteOnly<T>(string absoluteUriPath, T entity, Method method = Method.GET) where T : class;
         void ExecuteBatch(string absoluteUriPath, List<object> entities, Method method = Method.GET);
         void UpdateToken(HubSpotToken token);
     }
